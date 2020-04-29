@@ -425,7 +425,7 @@ GetHistogramFromCostFunctionWithWeightsRounded( const QubitRegister<Type> & psi,
           cut = diag[i].real();
           // single precision: machine epsilon ~ 1e-7
           // double precision: machine epsilon ~ 1e-16
-          assert( cut>=-1e-7 && cut <= (max_value + 1e-7) );
+          assert(cut <= (max_value + 1e-7) );
           index_bin = (int)(floor(cut+1e-7));
           private_hist[index_bin] += norm(psi[i]) ;
       }
@@ -492,7 +492,7 @@ GetHistogramFromCostFunctionWithWeightsBinned( const QubitRegister<Type> & psi,
           cut = diag[i].real();
           // single precision: machine epsilon ~ 1e-7
           // double precision: machine epsilon ~ 1e-16
-          assert( cut>=-1e-7 && cut <= max_value + 1e-7 );
+          assert(cut <= max_value + 1e-7 );
           index_bin = (int)(floor(cut / bin_width + 1e-7));
           private_hist[index_bin] += norm(psi[i]) ;
       }
